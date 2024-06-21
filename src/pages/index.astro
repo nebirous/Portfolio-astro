@@ -1,6 +1,9 @@
 ---
 import Linkedin from '../components/icons/Linkedin.astro';
+import {FlipWords} from '../components/ui/flip-words';
 import Layout from '../layouts/Layout.astro';
+
+const words = ['Full-Stack', 'Back-End', 'Front-End'];
 ---
 
 <Layout title="Welcome to Astro.">
@@ -15,7 +18,7 @@ import Layout from '../layouts/Layout.astro';
         David Salguero García
       </h1>
       <h2 class="text-2xl text-center">
-        <span class="opacity-90">Full-Stack Developer</span>,
+        <span class="text-white"><FlipWords words={words} /></span>,
         <span class="opacity-70">Photographer and Tech Enthusiast</span>
       </h2>
 
