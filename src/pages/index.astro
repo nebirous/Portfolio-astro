@@ -1,7 +1,31 @@
 ---
+import Linkedin from '../components/icons/Linkedin.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Welcome to Astro.">
-  <main></main>
+  <main>
+    <section class="h-screen mx-auto py-44 w-3/5 text-center">
+      <img
+        class="rounded-full w-48 h-48 mx-auto mb-10"
+        src="https://nebirous.github.io/Portfolio/img/avatar.jpg"
+        alt="Foto David Salguero"
+      />
+      <h1 class="text-white text-5xl font-bold gap-x-4 pb-4 text-center">
+        David Salguero García
+      </h1>
+      <h2 class="text-2xl text-center">
+        <span class="opacity-90">Full-Stack Developer</span>,
+        <span class="opacity-70">Photographer and Tech Enthusiast</span>
+      </h2>
+
+      <ul>
+        <li>
+          <a href="https://www.linkedin.com/in/nebirous/">
+            <Linkedin class="w-6 h-6" />
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
 </Layout>
