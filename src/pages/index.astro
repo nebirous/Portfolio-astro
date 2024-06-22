@@ -1,32 +1,41 @@
 ---
+import SocialPill from '../components/SocialPill.astro';
+import Flickr from '../components/icons/Flickr.astro';
+import Github from '../components/icons/Github.astro';
 import Linkedin from '../components/icons/Linkedin.astro';
 import Layout from '../layouts/Layout.astro';
-
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout
+  title="I'm David Salguero - Full-Stack Web Developer"
+  description="Hello, I am David Salguero from Granada 🇪🇸. Full-Stack web developer with more than 5 years of experience"
+>
   <main>
-    <section class="h-screen mx-auto py-44 w-3/5 text-center">
+    <section class="h-screen mx-auto py-60 w-3/5 text-center">
       <img
-        class="rounded-full w-48 h-48 mx-auto mb-10"
+        class="rounded-full size-48 mx-auto mb-10"
         src="https://nebirous.github.io/Portfolio/img/avatar.jpg"
         alt="Foto David Salguero"
       />
       <h1 class="text-white text-5xl font-bold gap-x-4 pb-4 text-center">
         David Salguero García
       </h1>
-      <h2 class="text-2xl text-center">
+      <h2 class="text-2xl text-center pb-4">
         <span class="opacity-90">Full-Stack Developer</span>,
         <span class="opacity-70">Photographer and Tech Enthusiast</span>
       </h2>
 
-      <ul>
-        <li>
-          <a href="https://www.linkedin.com/in/nebirous/">
-            <Linkedin class="w-6 h-6" />
-          </a>
-        </li>
-      </ul>
+      <nav class="flex gap-x-4 mx-auto w-full items-center justify-center mt-6">
+        <SocialPill href="https://www.linkedin.com/in/nebirous/">
+          <Linkedin class="size-6" /> Linkedin
+        </SocialPill>
+        <SocialPill href="https://www.github.com/nebirous/">
+          <Github class="size-6" /> Github
+        </SocialPill>
+        <SocialPill href="https://www.flickr.com/fotonebs">
+          <Flickr class="size-6" /> Flickr
+        </SocialPill>
+      </nav>
     </section>
   </main>
 </Layout>
