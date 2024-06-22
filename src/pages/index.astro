@@ -1,5 +1,8 @@
 ---
+import Experience from '../components/Experience.astro';
+import SectionContainer from '../components/SectionContainer.astro';
 import SocialPill from '../components/SocialPill.astro';
+import Briefcase from '../components/icons/Briefcase.astro';
 import Flickr from '../components/icons/Flickr.astro';
 import Github from '../components/icons/Github.astro';
 import Linkedin from '../components/icons/Linkedin.astro';
@@ -11,7 +14,7 @@ import Layout from '../layouts/Layout.astro';
   description="Hello, I am David Salguero from Granada 🇪🇸. Full-Stack web developer with more than 5 years of experience"
 >
   <main>
-    <section class="h-screen mx-auto py-60 w-3/5 text-center">
+    <SectionContainer class="py-60 pb-24 text-center">
       <img
         class="rounded-full size-48 mx-auto mb-10"
         src="https://nebirous.github.io/Portfolio/img/avatar.jpg"
@@ -36,6 +39,12 @@ import Layout from '../layouts/Layout.astro';
           <Flickr class="size-6" /> Flickr
         </SocialPill>
       </nav>
-    </section>
+    </SectionContainer>
+    <SectionContainer>
+      <h2 class="text-3xl font-semibold flex gap-x-4 mb-12 items-center">
+        <Briefcase class="size-6" />Work Experience
+      </h2>
+      <Experience />
+    </SectionContainer>
   </main>
 </Layout>
