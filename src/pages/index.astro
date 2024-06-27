@@ -1,8 +1,10 @@
 ---
 import Experience from '../components/Experience.astro';
+import Projects from '../components/Projects.astro';
 import SectionContainer from '../components/SectionContainer.astro';
 import SocialPill from '../components/SocialPill.astro';
 import Briefcase from '../components/icons/Briefcase.astro';
+import Code from '../components/icons/Code.astro';
 import Flickr from '../components/icons/Flickr.astro';
 import Github from '../components/icons/Github.astro';
 import Linkedin from '../components/icons/Linkedin.astro';
@@ -30,7 +32,9 @@ import Layout from '../layouts/Layout.astro';
         <span class="opacity-70">Photographer and Tech Enthusiast</span>
       </h2>
 
-      <nav class="flex gap-4 mx-auto w-full items-center justify-center mt-6 flex-wrap">
+      <nav
+        class="flex gap-4 mx-auto w-full items-center justify-center mt-6 flex-wrap"
+      >
         <SocialPill href="https://www.linkedin.com/in/nebirous/">
           <Linkedin class="size-3 lg:size-6" /> Linkedin
         </SocialPill>
@@ -43,10 +47,16 @@ import Layout from '../layouts/Layout.astro';
       </nav>
     </SectionContainer>
     <SectionContainer id="experience">
-      <h2 class="text-4xl font-semibold flex gap-x-4 mb-12 items-center">
+      <h2 class="text-4xl font-semibold flex gap-4 mb-12 items-center">
         <Briefcase class="size-9" />Work Experience
       </h2>
       <Experience />
+    </SectionContainer>
+    <SectionContainer id="experience">
+      <h2 class="text-4xl font-semibold flex gap-4 mb-12 items-center">
+        <Code class="size-9" />Projects
+      </h2>
+      <Projects />
     </SectionContainer>
   </main>
 </Layout>
