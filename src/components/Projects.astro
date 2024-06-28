@@ -1,13 +1,78 @@
 ---
+import SocialPill from './SocialPill.astro';
+
+import NextIcon from './icons/Nextjs.astro';
+import TypescriptIcon from './icons/Typescript.astro';
+import ReactIcon from './icons/React.astro';
+import TailwindIcon from './icons/Tailwind.astro';
+import JavaIcon from './icons/Java.astro';
+import RubyIcon from './icons/Ruby.astro';
+import SpringIcon from './icons/Spring.astro';
+import NodejsIcon from './icons/Nodejs.astro';
+import AngularIcon from './icons/Angular.astro';
+import HtmlIcon from './icons/Html.astro';
+
+const TAGS = {
+  NEXT: {
+    name: 'Next.js',
+    class: 'bg-black text-white',
+    icon: NextIcon,
+  },
+  TYPESCRIPT: {
+    name: 'Typescript',
+    class: 'bg-white/10 text-[#73BCF6]',
+    icon: TypescriptIcon,
+  },
+  REACT: {
+    name: 'React',
+    class: 'bg-black text-white',
+    icon: ReactIcon,
+  },
+  TAILWIND: {
+    name: 'Tailwind',
+    class: 'bg-black text-white',
+    icon: TailwindIcon,
+  },
+  JAVA: {
+    name: 'Java',
+    class: 'bg-black text-white',
+    icon: JavaIcon,
+  },
+  RUBY: {
+    name: 'Ruby on Rails',
+    class: 'bg-black text-white',
+    icon: RubyIcon,
+  },
+  SPRING: {
+    name: 'Spring Boot',
+    class: 'bg-black text-white',
+    icon: SpringIcon,
+  },
+  NODEJS: {
+    name: 'NodeJS',
+    class: 'bg-black text-white',
+    icon: NodejsIcon,
+  },
+  ANGULAR: {
+    name: 'Angular',
+    class: 'bg-black text-white',
+    icon: AngularIcon,
+  },
+  HTML: {
+    name: 'HTML5',
+    class: 'bg-black text-white',
+    icon: HtmlIcon,
+  },
+};
 const PROJECTS = [
   {
-    title: 'Project 1',
+    title: 'Synco - SaaS Automation platform',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae diam blablabla',
+      'Synco is a Software as a Service automation platform that allows you to automate Google Drive folders, Notion entries and Discord and Slack messages.',
     link: '#',
-    github: '#',
-    image: 'https://placehold.co/600x400',
-    tags: ['HTML', 'CSS', 'Javascript'],
+    github: 'https://github.com/nebirous/Synco',
+    image: '/public/projects/Synco.webp',
+    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.TYPESCRIPT, TAGS.REACT],
   },
 ];
 ---
@@ -15,14 +80,25 @@ const PROJECTS = [
 {
   PROJECTS.map(({title, description, tags, image, link, github}) => (
     <article>
-      <h3>{title}</h3>
-      <p>{description}</p>
+      <h3 class="text-2xl font-semibold mb-2">{title}</h3>
+      <p class="text-lg">{description}</p>
       <ul>
         {tags.map((tag) => (
-          <li>{tag}</li>
+          <li>
+            <span
+              class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+            >
+              <tag.icon class="size-4" />
+              {tag.name}
+            </span>
+          </li>
         ))}
       </ul>
-      <img src={image} alt={title} />
+      <img
+        class="rounded shadow-2xl shadow-white/10"
+        src={image}
+        alt={`${title} screenshot`}
+      />
     </article>
   ))
 }
