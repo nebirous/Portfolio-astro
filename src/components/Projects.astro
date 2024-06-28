@@ -20,7 +20,7 @@ const TAGS = {
   },
   TYPESCRIPT: {
     name: 'Typescript',
-    class: 'bg-white/10 text-[#73BCF6]',
+    class: 'bg-[#1e4979] text-white',
     icon: TypescriptIcon,
   },
   REACT: {
@@ -30,7 +30,7 @@ const TAGS = {
   },
   TAILWIND: {
     name: 'Tailwind',
-    class: 'bg-black text-white',
+    class: 'bg-[#073838] text-white',
     icon: TailwindIcon,
   },
   JAVA: {
@@ -81,12 +81,12 @@ const PROJECTS = [
   PROJECTS.map(({title, description, tags, image, link, github}) => (
     <article>
       <h3 class="text-2xl font-semibold mb-2">{title}</h3>
-      <p class="text-lg">{description}</p>
-      <ul>
+      <p class="text-lg mb-4">{description}</p>
+      <ul class="flex gap-x-4 flex-row">
         {tags.map((tag) => (
           <li>
             <span
-              class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+              class={`flex gap-x-2 rounded-full text-s ${tag.class} py-1 px-2 items-center mb-2`}
             >
               <tag.icon class="size-4" />
               {tag.name}
