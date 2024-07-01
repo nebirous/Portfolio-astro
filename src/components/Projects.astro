@@ -11,6 +11,9 @@ import SpringIcon from './icons/Spring.astro';
 import NodejsIcon from './icons/Nodejs.astro';
 import AngularIcon from './icons/Angular.astro';
 import HtmlIcon from './icons/Html.astro';
+import LinkButton from './LinkButton.astro';
+import Github from './icons/Github.astro';
+import Www from './icons/Www.astro';
 
 const TAGS = {
   NEXT: {
@@ -25,7 +28,7 @@ const TAGS = {
   },
   REACT: {
     name: 'React',
-    class: 'bg-black text-white',
+    class: 'bg-[#005665] text-white',
     icon: ReactIcon,
   },
   TAILWIND: {
@@ -74,12 +77,21 @@ const PROJECTS = [
     image: '/public/projects/Synco.webp',
     tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.TYPESCRIPT, TAGS.REACT],
   },
+  {
+    title: 'Synco 2 - SaaS Automation platform',
+    description:
+      'Synco is a Software as a Service automation platform that allows you to automate Google Drive folders, Notion entries and Discord and Slack messages.',
+    link: '',
+    github: 'https://github.com/nebirous/Synco',
+    image: '/public/projects/Synco.webp',
+    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.TYPESCRIPT, TAGS.REACT],
+  },
 ];
 ---
-
+<section class="flex flex-col gap-y-8">
 {
   PROJECTS.map(({title, description, tags, image, link, github}) => (
-    <article>
+    <article class="mb-10">
       <h3 class="text-2xl font-semibold mb-2">{title}</h3>
       <p class="text-lg mb-4">{description}</p>
       <ul class="flex gap-x-4 flex-row">
@@ -95,10 +107,23 @@ const PROJECTS = [
         ))}
       </ul>
       <img
-        class="rounded shadow-2xl shadow-white/10 mb-10"
+        class="rounded shadow-2xl shadow-white/10 mb-4"
         src={image}
         alt={`${title} screenshot`}
       />
+      <footer class="flex gap-x-2">
+        {github && (
+          <LinkButton href={github}>
+            <Github class="size-4 md:size-6" /> Github
+          </LinkButton>
+        )}
+        {link && (
+          <LinkButton href={link}>
+            <Www class="size-4 md:size-6" /> Preview{' '}
+          </LinkButton>
+        )}
+      </footer>
     </article>
   ))
 }
+</section>
