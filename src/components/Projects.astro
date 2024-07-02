@@ -67,7 +67,7 @@ const TAGS = {
     icon: HtmlIcon,
   },
 };
-const PROJECTS = [
+const PROJECTS = [/*
   {
     title: 'Synco - SaaS Automation platform',
     description:
@@ -86,44 +86,47 @@ const PROJECTS = [
     image: '/public/projects/Synco.webp',
     tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.TYPESCRIPT, TAGS.REACT],
   },
-];
+*/];
 ---
-<section class="flex flex-col gap-y-8">
-{
-  PROJECTS.map(({title, description, tags, image, link, github}) => (
-    <article class="mb-10">
-      <h3 class="text-2xl font-semibold mb-2">{title}</h3>
-      <p class="text-lg mb-4">{description}</p>
-      <ul class="flex gap-x-4 flex-row">
-        {tags.map((tag) => (
-          <li>
-            <span
-              class={`flex gap-x-2 rounded-full text-s ${tag.class} py-1 px-2 items-center mb-2`}
-            >
-              <tag.icon class="size-4" />
-              {tag.name}
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        class="rounded shadow-2xl shadow-white/10 mb-4"
-        src={image}
-        alt={`${title} screenshot`}
-      />
-      <footer class="flex gap-x-2">
-        {github && (
-          <LinkButton href={github}>
-            <Github class="size-4 md:size-6" /> Github
-          </LinkButton>
-        )}
-        {link && (
-          <LinkButton href={link}>
-            <Www class="size-4 md:size-6" /> Preview{' '}
-          </LinkButton>
-        )}
-      </footer>
-    </article>
-  ))
+
+{ PROJECTS &&
+  (
+    <section class="flex flex-col gap-y-8">
+      {PROJECTS.map(({title, description, tags, image, link, github}) => (
+        <article class="mb-10">
+          <h3 class="text-2xl font-semibold mb-2">{title}</h3>
+          <p class="text-lg mb-4">{description}</p>
+          <ul class="flex gap-x-4 flex-row">
+            {tags.map((tag) => (
+              <li>
+                <span
+                  class={`flex gap-x-2 rounded-full text-s ${tag.class} py-1 px-2 items-center mb-2`}
+                >
+                  <tag.icon class="size-4" />
+                  {tag.name}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <img
+            class="rounded shadow-2xl shadow-white/10 mb-4"
+            src={image}
+            alt={`${title} screenshot`}
+          />
+          <footer class="flex gap-x-2">
+            {github && (
+              <LinkButton href={github}>
+                <Github class="size-4 md:size-6" /> Github
+              </LinkButton>
+            )}
+            {link && (
+              <LinkButton href={link}>
+                <Www class="size-4 md:size-6" /> Preview{' '}
+              </LinkButton>
+            )}
+          </footer>
+        </article>
+      ))}
+    </section>
+  )
 }
-</section>

@@ -1,12 +1,32 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
 <footer
-  class="bg-black/20 rounded-lg shadow m-8 dark:bg-gray-800 backdrop-blur-lg lg:w-3/4 mx-auto"
+  class="max-sm:rounded-none rounded-lg shadow m-4 bg-black/5 dark:bg-white/10 dark:shadow-white/20 backdrop-blur-lg w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-10 flex justify-center"
 >
   <div
-    class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between"
+    class="rounded-lg w-full max-w-screen-xl mx-auto md:flex md:items-center md:justify-between py-4 px-4"
   >
-    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
-      >© 2024 <a href="https://flowbite.com/" class="hover:underline">DSG</a>.
-      None right reserved.
+    <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90"
+      >© {currentYear}
+      <a href="https://nebirous.github.io/Portfolio/" class="hover:underline"
+        >Nebirous // David <strong>Salguero</strong></a
+      >.
     </span>
+    <ul
+      class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
+    >
+      {
+        /* <li>
+        <a href="/photos" class="hover:underline me-4 md:me-6">Sobre mí</a>
+      </li>}*/
+      }
+      <li>
+        <a id="contacto" href="mailto:miduga@gmail.com" class="hover:underline"
+          >Contacto</a
+        >
+      </li>
+    </ul>
   </div>
 </footer>
