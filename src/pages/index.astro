@@ -16,38 +16,42 @@ import Layout from '@/layouts/Layout.astro';
   title="I'm David Salguero - Full-Stack Web Developer"
   description="Hello, I am David Salguero from Granada 🇪🇸. Full-Stack web developer with more than 5 years of experience"
 >
-  <main class="px-4">
-    <SectionContainer class="pt-60 text-center h-screen">
-      <img
-        class="rounded-full size-48 mx-auto mb-10"
-        src="https://nebirous.github.io/Portfolio/img/avatar.jpg"
-        alt="Foto David Salguero"
-      />
-      <h1
-        class="text-white text-3xl md:text-4xl lg:text-5xl font-bold gap-x-4 pb-4 text-center"
-      >
-        David Salguero García
-      </h1>
-      <h2 class="text-xl lg:text-2xl text-center pb-4">
-        <span class="opacity-90">Full-Stack Developer</span>,
-        <span class="opacity-70">Photographer and Tech Enthusiast</span>
-      </h2>
+  <main class="">
+    <SectionContainer
+      class="intro flex mx-auto text-center h-screen bg-no-repeat bg-center bg-cover bg-[url('/public/intro-light.webp')] dark:bg-[url('/public/intro.webp')] "
+    >
+      <div class="w-full m-auto">
+        <img
+          class="rounded-full size-48 mx-auto mb-10"
+          src="https://nebirous.github.io/Portfolio/img/avatar.jpg"
+          alt="Foto David Salguero"
+        />
+        <h1
+          class="text-white text-3xl md:text-4xl lg:text-5xl font-bold gap-x-4 pb-4 text-center"
+        >
+          David Salguero García
+        </h1>
+        <h2 class="text-xl lg:text-2xl text-center pb-4">
+          <span class="opacity-90">Full-Stack Developer</span>,
+          <span class="opacity-70">Photographer and Tech Enthusiast</span>
+        </h2>
 
-      <nav
-        class="flex gap-4 mx-auto w-full items-center justify-center mt-6 flex-wrap"
-      >
-        <SocialPill href="https://www.linkedin.com/in/nebirous/">
-          <Linkedin class="size-3 lg:size-6" /> Linkedin
-        </SocialPill>
-        <SocialPill href="https://www.github.com/nebirous/">
-          <Github class="size-3 lg:size-6" /> Github
-        </SocialPill>
-        <!-- <SocialPill href="https://www.flickr.com/fotonebs">
+        <nav
+          class="flex gap-4 mx-auto w-full items-center justify-center mt-6 flex-wrap"
+        >
+          <SocialPill href="https://www.linkedin.com/in/nebirous/">
+            <Linkedin class="size-3 lg:size-6" /> Linkedin
+          </SocialPill>
+          <SocialPill href="https://www.github.com/nebirous/">
+            <Github class="size-3 lg:size-6" /> Github
+          </SocialPill>
+          <!-- <SocialPill href="https://www.flickr.com/fotonebs">
           <Flickr class="size-6" /> Flickr
         </SocialPill> -->
-      </nav>
+        </nav>
+      </div>
     </SectionContainer>
-    <SectionContainer id="experience">
+    <SectionContainer id="experience" class="container">
       <h2 class="text-4xl font-semibold flex gap-4 mb-12 items-center">
         <Briefcase class="size-9" />Work Experience
       </h2>
@@ -59,7 +63,7 @@ import Layout from '@/layouts/Layout.astro';
       </h2>
       <Projects />
     </SectionContainer> -->
-    <SectionContainer id="about">
+    <SectionContainer id="about" class="container">
       <h2 class="text-4xl font-semibold flex gap-4 mb-12 items-center">
         <Profile class="size-9" />About me
       </h2>
