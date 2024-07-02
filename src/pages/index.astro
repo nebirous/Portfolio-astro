@@ -18,7 +18,7 @@ import Layout from '@/layouts/Layout.astro';
 >
   <main class="">
     <SectionContainer
-      class="intro flex mx-auto text-center h-screen bg-no-repeat bg-center bg-cover bg-[url('/public/intro-light.webp')] dark:bg-[url('/public/intro.webp')] "
+      class="intro flex mx-auto text-center h-[80vh] bg-no-repeat bg-center bg-cover bg-[url('/public/intro-light.webp')] dark:bg-[url('/public/intro.webp')] "
     >
       <div class="w-full m-auto">
         <img
@@ -27,13 +27,13 @@ import Layout from '@/layouts/Layout.astro';
           alt="Foto David Salguero"
         />
         <h1
-          class="text-white text-3xl md:text-4xl lg:text-5xl font-bold gap-x-4 pb-4 text-center"
+          class="dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold gap-x-4 pb-4 text-center"
         >
           David Salguero García
         </h1>
-        <h2 class="text-xl lg:text-2xl text-center pb-4">
-          <span class="opacity-90">Full-Stack Developer</span>,
-          <span class="opacity-70">Photographer and Tech Enthusiast</span>
+        <h2 class="text-xl lg:text-2xl text-center pb-4 font-medium">
+          <span class="dark:opacity-90">Full-Stack Developer</span>,
+          <span class="dark:opacity-70">Photographer and Tech Enthusiast</span>
         </h2>
 
         <nav
@@ -51,7 +51,7 @@ import Layout from '@/layouts/Layout.astro';
         </nav>
       </div>
     </SectionContainer>
-    <SectionContainer id="experience" class="container">
+    <SectionContainer id="experience" class="container lg:max-w-4xl md:max-w-2xl">
       <h2 class="text-4xl font-semibold flex gap-4 mb-12 items-center">
         <Briefcase class="size-9" />Work Experience
       </h2>
@@ -63,7 +63,7 @@ import Layout from '@/layouts/Layout.astro';
       </h2>
       <Projects />
     </SectionContainer> -->
-    <SectionContainer id="about" class="container">
+    <SectionContainer id="about" class="container lg:max-w-4xl md:max-w-2xl">
       <h2 class="text-4xl font-semibold flex gap-4 mb-12 items-center">
         <Profile class="size-9" />About me
       </h2>
