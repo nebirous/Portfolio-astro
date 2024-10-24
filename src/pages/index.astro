@@ -1,6 +1,7 @@
 ---
 import AboutMe from '@/components/AboutMe.astro';
 import Experience from '@/components/Experience.astro';
+import Footer from '@/components/Footer.astro';
 import Profile from '@/components/Profile.astro';
 import Projects from '@/components/Projects.astro';
 import SectionContainer from '@/components/SectionContainer.astro';
@@ -16,9 +17,11 @@ import Layout from '@/layouts/Layout.astro';
   title="I'm David Salguero - Full-Stack Web Developer"
   description="Hello, I am David Salguero from Granada 🇪🇸. Full-Stack web developer with more than 5 years of experience"
 >
-  <main class="">
+  <main class="px-4 h-[80vh] w-screen bg-no-repeat bg-center bg-cover bg-[url('/public/intro-light.webp')] dark:bg-[url('/public/intro.webp')] relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:to-[#13151a] pointer-events-none"></div>
+    
     <SectionContainer
-      class="intro flex mx-auto text-center h-[80vh] bg-no-repeat bg-center bg-cover bg-[url('/public/intro-light.webp')] dark:bg-[url('/public/intro.webp')] "
+      class="intro flex mx-auto text-center h-[80vh] relative z-10"
     >
       <div class="w-full m-auto">
         <img
@@ -51,7 +54,7 @@ import Layout from '@/layouts/Layout.astro';
         </nav>
       </div>
     </SectionContainer>
-    <SectionContainer id="experience" class="container lg:max-w-4xl md:max-w-2xl">
+    <SectionContainer id="experience" class="mt-12 container lg:max-w-4xl md:max-w-2xl bg-white dark:bg-[#13151a] relative z-20">
       <h2 class="text-4xl font-semibold flex gap-4 mb-12 items-center">
         <Briefcase class="size-9" />Work Experience
       </h2>
@@ -69,5 +72,6 @@ import Layout from '@/layouts/Layout.astro';
       </h2>
       <AboutMe />
     </SectionContainer>
+    <Footer />
   </main>
 </Layout>
