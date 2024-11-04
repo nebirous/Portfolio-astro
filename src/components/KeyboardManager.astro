@@ -1,0 +1,160 @@
+---
+import 'hotkeypad/reset.css'
+import 'hotkeypad/index.css'
+import { type SocialIcon } from "@/types"
+import { basics } from 'cv.json'
+import GitHub from "./icons/Github.astro"
+import LinkedIn from "./icons/Linkedin.astro"
+
+const { profiles } = basics
+
+const SOCIAL_ICONS: SocialIcon = {
+  GitHub: GitHub,
+  LinkedIn: LinkedIn,
+}
+
+const profilesInfo = profiles.map(({ network, url }) => {
+  const Icon = SOCIAL_ICONS[network]
+  const firstLetter = network[0].toUpperCase()
+
+  return {
+    id: network,
+    section: "Social",
+    title: `Visit ${network}`,
+    url,
+    icon: Icon.toString(),
+    hotkey: `ctrl+${firstLetter}`
+  }
+})
+---
+
+<footer id="normal-sidebar" class="no-print">
+  <div class="vertical-text">Pulsa <kbd>Ctrl</kbd> + <kbd>K</kbd> para abrir la paleta de comandos.</div>
+</footer>
+
+<div id="footer-button" class="no-print">
+  <span style="margin-right: 8px">
+    <svg width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none">
+      </path>
+      <path d="M7 9a2 2 0 1 1 2 -2v10a2 2 0 1 1 -2 -2h10a2 2 0 1 1 -2 2v-10a2 2 0 1 1 2 2h-10" 
+      stroke="#777" 
+      stroke-width="1.5" 
+      fill="none" 
+      stroke-linecap="round" 
+      stroke-linejoin="round">
+      </path>
+    </svg>
+  </span>
+</div>
+
+<div
+  id="hotkeypad"
+  data-placeholder="Buscar comando"
+  data-info={JSON.stringify(profilesInfo)}
+>
+</div>
+
+<script>
+  interface Info {
+    id: string
+    section: string
+    title: string
+    url: string
+    icon: string
+    hotkey: string
+    handler?: () => void
+  }
+
+  import HotKeyPad from 'hotkeypad'
+  import Pdf from './icons/Pdf.astro'
+
+  const hotkeypad = new HotKeyPad()
+  const info = hotkeypad.instance.getAttribute("data-info") ?? "[]"
+  const parsedInfo = JSON.parse(info) as Info[]
+
+  const data = parsedInfo.map(
+    ({ url, hotkey, icon, id, section, title }) => {
+      return {
+        id,
+        title,
+        icon,
+        hotkey,
+        section,
+        handler: () => {
+          window.open(url, "_blank")
+        }
+      }
+    }
+  )
+  hotkeypad.setCommands([
+    {
+      id: "CV",
+      title: "Open CV",
+      icon: Pdf.toString(),
+      hotkey: "ctrl+P",
+      section: "Acciones",
+      handler: () => {
+        window.print()
+      }
+    },
+    ...data
+  ])
+
+  const footerButton = document.getElementById("footer-button")
+  footerButton?.addEventListener("click", () => {
+    var event = new KeyboardEvent("keydown", {
+      key: "K",
+      code: "KeyK",
+      keyCode: 75,
+      which: 75,
+      ctrlKey: true,
+      altKey: false,
+      shiftKey: false,
+      metaKey: false
+    })
+
+    document.dispatchEvent(event)
+  })
+</script>
+
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @media (min-width: 601px) {
+    #normal-sidebar {
+      display: block;
+      position: fixed;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      writing-mode: vertical-lr;
+      padding: 1rem;
+      font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace;
+      font-size: 0.75rem;
+      color: #CCC; 
+    }
+
+    .vertical-text {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem; 
+    }
+
+    .vertical-text kbd {
+      display: inline-block;
+      font-size: 0.7rem; 
+    }
+
+    #footer-button {
+      display: none;
+    }
+  }
+</style>
