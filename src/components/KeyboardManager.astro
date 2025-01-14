@@ -19,9 +19,9 @@ const icons = {
 }
 ---
 
-<footer id="normal-sidebar" class="no-print dark:text-gray-900">
-  <div class="vertical-text">Pulsa <kbd>Ctrl</kbd> + <kbd>K</kbd> para abrir la paleta de comandos.</div>
-</footer>
+<div id="normal-sidebar" class="no-print dark:text-gray-900">
+  <div class="vertical-text">Press <kbd>Ctrl</kbd> + <kbd>K</kbd> to open the command palette.</div>
+</div>
 
 <div id="footer-button" class="no-print dark:text-gray-400">
   <span style="margin-right: 8px">
@@ -41,8 +41,9 @@ const icons = {
 
 <div
   id="hotkeypad"
-  data-placeholder="Buscar comando"
+  data-placeholder="Search command"
   data-icons={JSON.stringify(icons)}
+  class="light dark:dark"
 >
 </div>
 
@@ -67,7 +68,7 @@ const icons = {
   hotkeypad.setCommands([
     {
       id: "print-cv",
-      title: "Print CV",
+      title: "Read CV",
       icon: icons.pdf,
       hotkey: "ctrl+P",
       section: "Acciones",
@@ -135,7 +136,11 @@ const icons = {
       padding: 1rem;
       font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace;
       font-size: 0.75rem;
-      @apply text-gray-600 dark:text-gray-300;
+      color: rgb(75, 85, 99);
+    }
+
+    #normal-sidebar.dark {
+      color: rgb(209, 213, 219);
     }
 
     .vertical-text {
@@ -159,48 +164,44 @@ const icons = {
              font-medium;
     }
 
+    #normal-sidebar.dark .vertical-text kbd {
+      background-color: rgb(31, 41, 55);
+      color: rgb(209, 213, 219);
+    }
+
     #footer-button {
       display: none;
     }
   }
 
-  :global(.dark) #hotkeypad {
-    @apply bg-[#13151a] text-gray-200 border-gray-700;
+  /* Light theme (default) */
+  #hotkeypad.light {
+    --hotkeypad-bg-kbd: #f9fafb;
+    --hotkeypad-bg-backdrop: rgba(255, 255, 255, 0.8);
+    --hotkeypad-bg-container: #fff;
+    --hotkeypad-bg-item-hover: #f3f4f6;
+    --hotkeypad-border-container: #d1d5db;
+    --hotkeypad-border-container-hover: #9ca3af;
+    --hotkeypad-fg-muted: #4b5563;
   }
 
-  :global(.dark) #hotkeypad input {
-    @apply bg-[#1a1d24] text-gray-200 border-gray-700;
+  /* Dark theme */
+  #hotkeypad.dark {
+    --hotkeypad-bg-kbd: #1f2937; /* gray-800 */
+    --hotkeypad-bg-backdrop: rgba(0, 0, 0, 0.8);
+    --hotkeypad-bg-container: #111827; /* gray-900 */
+    --hotkeypad-bg-item-hover: #374151; /* gray-700 */
+    --hotkeypad-border-container: #374151; /* gray-700 */
+    --hotkeypad-border-container-hover: #4b5563; /* gray-600 */
+    --hotkeypad-fg-muted: #9ca3af; /* gray-400 */
   }
 
-  :global(.dark) #hotkeypad .hotkeypad-item {
-    @apply hover:bg-[#1a1d24] text-gray-300;
+  /* Additional styling for specific parts if needed */
+  #hotkeypad [data-container] {
+    @apply shadow-lg;
   }
 
-  :global(.dark) #hotkeypad .hotkeypad-shortcut {
-    @apply text-gray-500;
+  #hotkeypad.dark [data-container] {
+    @apply shadow-2xl shadow-gray-900;
   }
-
-  :global(.dark) #hotkeypad .hotkeypad-section-title {
-    @apply text-gray-400;
-  }
-
-  :global(.dark) #hotkeypad .hotkeypad-footer {
-    @apply text-gray-500 border-t border-gray-700;
-  }
-
-  :global(.dark) #hotkeypad kbd {
-    @apply bg-[#1a1d24] text-gray-300 border-gray-700;
-  }
-
-  /* Add these CSS variable overrides for dark mode */
-  :global(.dark) {
-    --hotkeypad-bg-kbd: #1a1d24;
-    --hotkeypad-bg-backdrop: rgba(0, 0, 0, 0.7);
-    --hotkeypad-bg-container: #13151a;
-    --hotkeypad-bg-item-hover: #1a1d24;
-    --hotkeypad-border-container: #2e2e2e;
-    --hotkeypad-border-container-hover: #3f3f3f;
-    --hotkeypad-fg-muted: #9ca3af;
-  }
-
 </style>
